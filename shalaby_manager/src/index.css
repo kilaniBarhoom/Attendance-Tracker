@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: Asap;
+    --background: 189 50% 99%;
+    --foreground: 189 56% 4%;
+    --muted: 189 9% 91%;
+    --muted-foreground: 189 12% 33%;
+    --popover: 189 50% 99%;
+    --popover-foreground: 189 56% 4%;
+    --card: 189 50% 98%;
+    --card-foreground: 189 56% 3%;
+    --border: 189 2% 68%;
+    --input: 189 2% 68%;
+    --primary: 189 40% 76%;
+    --primary-foreground: 189 40% 16%;
+    --secondary: 189 17% 84%;
+    --secondary-foreground: 189 17% 24%;
+    --accent: 189 23% 75%;
+    --accent-foreground: 189 23% 15%;
+    --destructive: 11 89% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 189 40% 56%;
+    --radius: 0.5rem;
+    --chart-1: 189 40% 76%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 189 54% 0%;
+    --foreground: 189 32% 99%;
+    --muted: 0 9% 9%;
+    --muted-foreground: 0 12% 67%;
+    --popover: 189 54% 0%;
+    --popover-foreground: 189 32% 99%;
+    --card: 0 0% 1%;
+    --card-foreground: 0 0% 100%;
+    --border: 189 2% 13%;
+    --input: 189 2% 13%;
+    --primary: 189 40% 76%;
+    --primary-foreground: 189 40% 16%;
+    --secondary: 0 0% 17%;
+    --secondary-foreground: 0 0% 77%;
+    --accent: 0 6% 24%;
+    --accent-foreground: 0 6% 84%;
+    --destructive: 11 89% 49%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 189 40% 56%;
+    --chart-1: 189 40% 76%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground ltr:font-poppins rtl:font-noto_sans;
+  }
+}
+
+@layer base {
+  /* Scrollbar Track */
+  ::-webkit-scrollbar {
+    width: 8px; /* Width for vertical scrollbar */
+    height: 8px; /* Height for horizontal scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.3); /* Background for scrollbar track */
+    border-radius: 2px;
+  }
+
+  /* Scrollbar Handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); /* Background for scrollbar track */
+    border-radius: 2px;
+  }
+
+  /* Scrollbar Hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.6); /* Background for scrollbar track */
+  }
+
+  /* Dark Mode Adjustments */
+  .dark ::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.6); /* Background for scrollbar track */
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); /* Background for scrollbar track */
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.6); /* Background for scrollbar track */
+  }
+  .pageTitle {
+    paint-order: stroke;
+    -webkit-text-stroke: 20px var(--foreground);
+    text-shadow: 10px 10px 0 var(--background), 20px 20px 0 var(--foreground);
+  }
+
+  .swipehover::after {
+    @apply absolute top-0 left-0 w-0 h-0 bg-gradient-to-r from-transparent to-background pointer-events-none z-10;
+  }
+
+  .swipehover:hover::after {
+    @apply w-full h-full transition-all;
+  }
+}
